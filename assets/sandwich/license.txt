@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sandwich
+* source:	https://sketchfab.com/3d-models/sandwich-d7ac78cc0d57451d8b9db4d62a5246b3
+* author:	Tamal De Quezo (https://sketchfab.com/Tamaldequeso)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sandwich" (https://sketchfab.com/3d-models/sandwich-d7ac78cc0d57451d8b9db4d62a5246b3) by Tamal De Quezo (https://sketchfab.com/Tamaldequeso) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
