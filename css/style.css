@@ -213,9 +213,13 @@ p {
     margin: 175px 0px;
 }
 
-#recipe-container p,
-#instructions-container p,
-#fries-recipe-container p,
-#fries-instructions-container p {
+#recipe-container li,
+#instructions-container li,
+#fries-recipe-container li,
+#fries-instructions-container li,
+#recipe-container ol,
+#instructions-container ol,
+#fries-recipe-container ol,
+#fries-instructions-container ol {
     font-size: 20px;
 }
