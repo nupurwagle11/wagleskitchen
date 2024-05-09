@@ -127,6 +127,35 @@ gltfLoader.load(
     }
 )
 
+let fries = null
+
+gltfLoader.load(
+    './assets/frenchFries.gltf',
+    (gltf) => {
+        console.log(gltf);
+
+        fries = gltf.scene
+
+        const radius = 0.9
+
+        fries.position.x = 5.3;
+        fries.position.y = -0.5;
+
+        fries.rotation.x = Math.PI * 0.2
+        fries.rotation.z = Math.PI * 0.15
+
+        fries.scale.set(radius, radius, radius)
+
+        scene.add(fries)
+    },
+    (progress) => {
+        console.log(progress);
+    },
+    (error) => {
+        console.error(error);
+    }
+)
+
 /**
  * Light
  */
@@ -155,11 +184,11 @@ let currentSection = 0
 
 const transformDonut = [{
         rotationZ: 0.45,
-        positionX: -5.0
+        positionX: -5.3
     },
     {
         rotationZ: 0.45,
-        positionX: -5.0
+        positionX: -5.3
     },
     {
         rotationZ: 0.45,
@@ -179,8 +208,62 @@ const transformDonut = [{
     },
     {
         rotationZ: 0.0314,
-        positionX: 0
+        positionX: -5.5
     },
+    {
+        rotationZ: 0.0314,
+        positionX: -5.5
+    },
+    {
+        rotationZ: 0.0314,
+        positionX: -5.5
+    },
+    {
+        rotationZ: 0.0314,
+        positionX: -5.5
+    },
+]
+
+const transformFries = [{
+    rotationZ: 0.45,
+    positionX: 5.3
+},
+{
+    rotationZ: 0.45,
+    positionX: 5.3
+},
+{
+    rotationZ: 0.45,
+    positionX: 5.3
+},
+{
+    rotationZ: -0.45,
+    positionX: 5.3
+},
+{
+    rotationZ: 0.45,
+    positionX: 5.3
+},
+{
+    rotationZ: 0.0314,
+    positionX: 5.3
+},
+{
+    rotationZ: -0.25,
+    positionX: -1.1
+},
+{
+    rotationZ: 0.25,
+    positionX: 1.1
+},
+{
+    rotationZ: -0.25,
+    positionX: -1.1
+},
+{
+    rotationZ: 0.0314,
+    positionX: 0
+},
 ]
 
 window.addEventListener('scroll', () => {
@@ -214,6 +297,31 @@ window.addEventListener('scroll', () => {
                     duration: 1.5,
                     ease: 'power2.inOut',
                     x: transformDonut[currentSection].positionX - 0.2
+                }
+            )
+        }
+
+        if (!!fries) {
+            gsap.to(
+                fries.rotation, {
+                    duration: 1.5,
+                    ease: 'power2.inOut',
+                    z: transformFries[currentSection].rotationZ
+                }
+            )
+            gsap.to(
+                fries.position, {
+                    duration: 1.5,
+                    ease: 'power2.inOut',
+                    x: transformFries[currentSection].positionX
+                }
+            )
+
+            gsap.to(
+                sphereShadow.position, {
+                    duration: 1.5,
+                    ease: 'power2.inOut',
+                    x: transformFries[currentSection].positionX - 0.2
                 }
             )
         }
@@ -278,6 +386,8 @@ window.onbeforeunload = function () {
 // API CALL FOR BURGER INGREDIENTS
 let recipe_container = document.getElementById("recipe-container")
 let instructions_container = document.getElementById("instructions-container")
+let fries_recipe_container = document.getElementById("fries-recipe-container")
+let fries_instructions_container = document.getElementById("fries-instructions-container")
 
 function fetchAndStoreRecipe() {
     fetch("https://api.api-ninjas.com/v1/recipe?query=chicken burger", {
@@ -293,7 +403,33 @@ function fetchAndStoreRecipe() {
       .then(data => { 
         // Store the data in local storage
         localStorage.setItem("burger", JSON.stringify(data));
-        console.log(data);;
+        console.log(data);
+        loadRecipe(data);
+        loadInstructions(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  //fries API call
+  function fetchAndStoreFriesRecipe() {
+    fetch("https://api.api-ninjas.com/v1/recipe?query=fries", {
+      method: "GET",   
+      contentType: 'application/json',
+      headers: {
+        'X-Api-Key': 'qBjeqODVBC5JRfFZHPWjWw==DeWN0cYaAUpRaYSU',
+      }
+    })
+    .then(response => { 
+        return response.json();
+      })
+      .then(data => { 
+        // Store the data in local storage
+        localStorage.setItem("fries", JSON.stringify(data));
+        console.log(data);
+        loadRecipeFries(data);
+        loadInstructionsFries(data);
       })
       .catch(err => {
         console.log(err);
@@ -323,6 +459,28 @@ function loadRecipe(data) {
   
 }
 
+function loadRecipeFries(data) {
+    // console.log('loadRecipeFries was called');
+    fries_recipe_container.innerHTML = "";
+        
+        const friesRecipe = data.find(recipe => recipe.title === "Oven French Fries");
+
+        // console.log(friesRecipe);
+        
+        const friesIngredients = friesRecipe.ingredients.split('|');
+
+        let friesIngredientList = '';
+
+        friesIngredients.forEach(ingredient => {
+            friesIngredientList += `<li>${ingredient.trim()}</li>`;
+        });
+
+        fries_recipe_container.innerHTML += `
+                <p>${friesIngredientList}</p>
+        `;
+  
+}
+
 // Function to load instructions
 function loadInstructions(data) {
     // console.log('loadInstructions was called');
@@ -348,6 +506,30 @@ function loadInstructions(data) {
   
 }
 
+function loadInstructionsFries(data) {
+    // console.log('loadInstructions was called');
+    fries_instructions_container.innerHTML = "";
+        
+        const OvenFriesInstructions = data.find(recipe => recipe.title === "Oven French Fries");
+
+        // console.log(friesInstructions);
+        
+        const friesInstructions = OvenFriesInstructions.instructions.split(/\d+\./);
+
+        let friesInstructionsList = '';
+
+        friesInstructions.forEach(instruction => {
+            // console.log(instruction);
+            friesInstructionsList += `<ol>${instruction.trim()}</ol>`;
+        });
+        // console.log(friesInstructionsList);
+
+        fries_instructions_container.innerHTML += `
+                <p>${friesInstructionsList}</p>
+        `;
+  
+}
+
 // Function to load recipes from local storage
 function loadRecipeFromStorage() {
     const storedData = localStorage.getItem("burger");
@@ -361,4 +543,26 @@ function loadRecipeFromStorage() {
     }
 }
 
+function loadFriesRecipeFromStorage() {
+    const friesstoredData = localStorage.getItem("fries");
+    if (friesstoredData) {
+        const friesParsedData = JSON.parse(friesstoredData);
+        loadRecipeFries(friesParsedData);
+        loadInstructionsFries(friesParsedData);
+    } else {
+        // If no data in local storage, fetch and store recipe
+        fetchAndStoreFriesRecipe();
+    }
+}
+
 loadRecipeFromStorage();
+loadFriesRecipeFromStorage();
+
+
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        // Smooth scroll to the section
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+}
