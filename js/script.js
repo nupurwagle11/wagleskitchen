@@ -266,7 +266,7 @@ window.onbeforeunload = function () {
 // API CALL FOR BURGER INGREDIENTS
 let recipe_container = document.getElementById("recipe-container")
 
-function fetchAndStoreRecepie() {
+function fetchAndStoreRecipe() {
     fetch("https://api.api-ninjas.com/v1/recipe?query=burger king", {
       method: "GET",   
       contentType: 'application/json',
