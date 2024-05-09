@@ -64,7 +64,7 @@ const sphereShadow = new THREE.Mesh(
 sphereShadow.rotation.x = -Math.PI * 0.5
 
 sphereShadow.position.y = -1.5
-sphereShadow.position.x = 1.5;
+sphereShadow.position.x = -5.0;
 
 scene.add(sphereShadow)
 
@@ -110,7 +110,7 @@ gltfLoader.load(
 
         const radius = 0.5
 
-        donut.position.x = 1.2;
+        donut.position.x = -5.0;
 
         donut.rotation.x = Math.PI * 0.2
         donut.rotation.z = Math.PI * 0.15
@@ -155,11 +155,23 @@ let currentSection = 0
 
 const transformDonut = [{
         rotationZ: 0.45,
+        positionX: -5.0
+    },
+    {
+        rotationZ: 0.45,
+        positionX: -5.0
+    },
+    {
+        rotationZ: 0.45,
         positionX: 1.1
     },
     {
         rotationZ: -0.45,
         positionX: -1.1
+    },
+    {
+        rotationZ: 0.45,
+        positionX: 1.1
     },
     {
         rotationZ: 0.0314,
@@ -265,9 +277,10 @@ window.onbeforeunload = function () {
 
 // API CALL FOR BURGER INGREDIENTS
 let recipe_container = document.getElementById("recipe-container")
+let instructions_container = document.getElementById("instructions-container")
 
 function fetchAndStoreRecipe() {
-    fetch("https://api.api-ninjas.com/v1/recipe?query=burger king", {
+    fetch("https://api.api-ninjas.com/v1/recipe?query=chicken burger", {
       method: "GET",   
       contentType: 'application/json',
       headers: {
@@ -292,9 +305,9 @@ function loadRecipe(data) {
     // console.log('loadRecipe was called');
     recipe_container.innerHTML = "";
         
-        const burgerRecipe = data.find(recipe => recipe.title === "Burger King Whopper");
+        const burgerRecipe = data.find(recipe => recipe.title === "Spicy Chicken Burgers");
 
-        console.log(burgerRecipe);
+        // console.log(burgerRecipe);
         
         const ingredients = burgerRecipe.ingredients.split('|');
 
@@ -310,12 +323,38 @@ function loadRecipe(data) {
   
 }
 
+// Function to load instructions
+function loadInstructions(data) {
+    // console.log('loadInstructions was called');
+    instructions_container.innerHTML = "";
+        
+        const burgerInstructions = data.find(recipe => recipe.title === "Spicy Chicken Burgers");
+
+        // console.log(burgerInstructions);
+        
+        const instructions = burgerInstructions.instructions.split(/\d+\./);
+
+        let instructionsList = '';
+
+        instructions.forEach(instruction => {
+            console.log(instruction);
+            instructionsList += `<ol>${instruction.trim()}</ol>`;
+        });
+        // console.log(instructionsList);
+
+        instructions_container.innerHTML += `
+                <p>${instructionsList}</p>
+        `;
+  
+}
+
 // Function to load recipes from local storage
 function loadRecipeFromStorage() {
     const storedData = localStorage.getItem("burger");
     if (storedData) {
         const parsedData = JSON.parse(storedData);
         loadRecipe(parsedData);
+        loadInstructions(parsedData);
     } else {
         // If no data in local storage, fetch and store recipe
         fetchAndStoreRecipe();

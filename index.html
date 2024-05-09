@@ -15,44 +15,73 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top custom-navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="./assets/images/mcLogo1.png" alt="Mcdonald's" width="125" height="100">
+                <img src="./assets/images/wagleLogo.png" alt="Mcdonald's" width="350" height="100">
               </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="collapse navbar-collapse justify-content-end id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Order Now</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Burgers</a></li>
-                        <li><a class="dropdown-item" href="#">Meals</a></li>
-                        <li><a class="dropdown-item" href="#">Sides</a></li>
-                    </ul>
+                    <a class="nav-link" aria-current="page" href="#">Meals</a>
                 </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Deals</a>
+                <a class="nav-link active" aria-current="page" href="#">Quick Eats</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#">Breakfast</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Snacks</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Occassions</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
 
+      <section class="welcome-section">
+            <div class="welcome-container">
+                <img src="./assets/images/NupurChef.png" alt="Nupur Chef Image" />
+                <h1>WELCOME TO MY KITCHEN!</h1>
+            </div>
+    </section>
+    <section class="featured-recipe-section">
+        <div class="recipe-container">
+            <h2>Featured Recipes</h2>
+            <div class="row">
+                <div class="card text-bg-dark m-4" style="width: 35rem;">
+                    <img src="./assets/images/burgerCard.jpg" class="card-img-top" alt="burger">
+                    <div class="card-body">
+                      <h5 class="card-title">SPICY BURGERS</h5>
+                    </div>
+                  </div>
+                <div class="card text-bg-dark m-4" style="width: 35rem;">
+                    <img src="./assets/images/friesCard.jpg" class="card-img-top" alt="fries">
+                    <div class="card-body">
+                      <h5 class="card-title">FRENCH FRIES</h5>
+                    </div>
+                  </div>
+                <div class="card text-bg-dark m-4" style="width: 35rem;">
+                    <img src="./assets/images/nuggetsCard.jpg" class="card-img-top" alt="nuggets">
+                    <div class="card-body">
+                      <h5 class="card-title">CHICKEN NUGGETS</h5>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </section>
     <section class="one">
         <div class="container">
             <div class="hero">
-                <h2>FEELING HUNGRY?</h2>
-                <h3>Try the new McCrispy Burger</h3>
-                <p>100% chicken breast fillet in a crispy, crunchy coating! <br>
-                    Cooked to keep the breading crispy on the outside and juicy on the inside, <br>
-                    and topped with shredded lettuce, mayo-style sauce <br>
-                    and served on a soft potato bun.</p>
+                <h2>FEELING BURGERLICIOUS?</h2>
+                <h3>Try the new Crispy Chicken Burger</h3>
+                <p>Crafted with passion and precision, this burger recipe is a symphony of flavors,<br> 
+                    combining juicy, succulent meat with the perfect blend of spices and seasonings. <br>Each bite bursts with savory goodness, leaving you craving more with every<br>
+                    delicious mouthful.
+                    </p>
 
             </div>
         </div>
@@ -61,10 +90,22 @@
     <section class="two">
         <div class="container">
             <div class="hero">
-                <h2>How we do</h2>
-                <h3>Experiment width tasty <br>burgers recipe everytime</h3>
-                <p>Ingredients</p>
+                <h2>Dive into the world of flavor!</h2>
+                <h3>Indulge in the ultimate burger experience today. Your taste buds will thank you!</h3>
+                <p>What You'll Need</p>
                 <div id="recipe-container"></div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="one">
+        <div class="container">
+            <div class="hero">
+                <h2>WONDERING WHAT THE RECIPE IS?</h2>
+                <h3>I'll make your life easy</h3>
+                <p>Instructions<br></p>
+                <div id="instructions-container"></div>
 
             </div>
         </div>
@@ -72,17 +113,15 @@
 
     <section class="three">
             <div class="container">
-                <div class="hero">
+                <div class="hero order-now">
                     <h1>ORDER NOW!</h1>
                 </div>
             </div>
     </section>
     
     <div class="background-overlay"></div>
-    <!-- <script src="script.js"></script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js"></script>
-    <!-- <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script> -->
     <script src="https://unpkg.com/three@0.146.0/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
