@@ -337,7 +337,7 @@ function loadInstructions(data) {
         let instructionsList = '';
 
         instructions.forEach(instruction => {
-            console.log(instruction);
+            // console.log(instruction);
             instructionsList += `<ol>${instruction.trim()}</ol>`;
         });
         // console.log(instructionsList);
