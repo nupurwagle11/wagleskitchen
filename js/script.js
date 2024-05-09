@@ -110,7 +110,7 @@ gltfLoader.load(
 
         const radius = 0.5
 
-        donut.position.x = -5.0;
+        donut.position.x = -5.3;
 
         donut.rotation.x = Math.PI * 0.2
         donut.rotation.z = Math.PI * 0.15
