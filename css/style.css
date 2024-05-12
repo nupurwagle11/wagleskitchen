@@ -14,8 +14,8 @@ html {
 body {
     background: #FFFCF5;
     position: relative;
-    min-height: 100vh; /* Change to min-height for responsiveness */
-    overflow-x: hidden;
+    height: 100%;
+    overflow: hidden;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -31,6 +31,8 @@ body.loaded {
 }
 
 section {
+    height: 100vh;
+    width: 100vw;
     scroll-snap-align: start;
     position: relative;
 }
@@ -38,57 +40,109 @@ section {
 section .container {
     max-width: 1360px;
     width: 100%;
+    height: 100%;
     margin: 0 auto;
     padding: 0 15px;
 
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap */
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: flex-start;
+}
+
+section.one .container {
+    grid-template-areas: 'content ..'
+}
+
+section.two .container {
+    grid-template-areas: '.. content'
+}
+
+section.three .container {
+    grid-template-areas: '.. content'
+}
+
+section.four .container {
+    grid-template-areas: '.. content'
+}
+
+section.five .container {
+    grid-template-areas: 'content ..'
+}
+section.six .container {
+    grid-template-areas: '.. content'
+}
+section.seven .container {
+    grid-template-areas: 'content ..'
 }
 
 .hero {
     width: 100%;
+    height: 100%;
     margin-bottom: 50px;
-    text-align: center; /* Center text in hero */
+
+    grid-area: content;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .order-now h1 {
-    font-size: 6vw; /* Responsive font size */
-    line-height: 1.2; /* Adjust line height */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 90px;
+    line-height: 100px;
     font-weight: 700;
-    color: rgb(255, 194, 0);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); /* Adjust shadow */
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255 194 0);
+    text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.9);
 }
 
 h1 {
-    font-size: 6vw; /* Responsive font size */
-    line-height: 1.2; /* Adjust line height */
+    font-size: 90px;
+    line-height: 100px;
     font-weight: 700;
+    height: 100px;
+    width: 100%;
 }
 
 h2 {
-    font-size: 4vw; /* Responsive font size */
+    font-size: 60px;
     font-weight: 600;
-    line-height: 1.2; /* Adjust line height */
+    line-height: 70px;
     font-family: 'Poppins', sans-serif;
+    display: block;
+    width: 100%;
 }
 
 h3 {
-    font-size: 3vw; /* Responsive font size */
+    font-size: 50px;
     font-weight: 400;
-    line-height: 1.2; /* Adjust line height */
-    margin-bottom: 2vw; /* Adjust margin */
+    line-height: 60px;
+    margin-bottom: 30px;
+    display: block;
+    width: 100%;
 }
 
 p {
-    font-size: 1.5vw; /* Responsive font size */
-    line-height: 1.6; /* Adjust line height */
+    font-size: 25px;
+    line-height: 26px;
+    font-weight: 300;
+    display: block;
+    width: 100%;
 }
 
 .loading-bar {
     position: fixed;
-    top: 0;
+    top: 50%;
     width: 100%;
     height: 2px;
     z-index: 99;
@@ -106,20 +160,21 @@ p {
 
 .custom-navbar {
     background-color: transparent !important;
-}
+  }
 
 .nav-link {
-    font-size: 2vw; /* Responsive font size */
-    margin: 0 1.5vw; /* Adjust margin */
+    font-size: x-large;
+    margin: 0px 15px;
 }
 
 .navbar-brand img {
-    margin: 0 3vw; /* Adjust margin */
+    margin: 0px 30px;
 }
 
 .dropdown-item {
-    font-size: 2vw; /* Responsive font size */
+    font-size: x-large;
 }
+
 
 .background-overlay {
     position: fixed;
@@ -144,7 +199,7 @@ p {
 }
 
 .welcome-container img {
-    margin: 6vw 0;
+    margin: 90px 0px;
 }
 
 .recipe-container {
@@ -154,12 +209,11 @@ p {
     flex-direction: column;
     text-align: center;
 }
-
 .recipe-container h2{
-    margin: 12vw 0;
+    margin: 175px 0px;
 }
 
 li,
 ol {
-    font-size: 1.5vw; /* Responsive font size */
+    font-size: 20px;
 }
