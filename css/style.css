@@ -306,33 +306,40 @@ ol {
     }
   }
 
-
 @media only screen 
-  and (min-device-width: 250px) 
-  and (max-device-width: 650px) 
-  and (min-device-height: 600px) 
-  and (max-device-height: 999px) {
+  and (min-width: 250px) 
+  and (max-width: 650px) 
+  and (min-height: 600px) 
+  and (max-height: 999px) {
   
     .navbar-brand img {
-        margin: 0px 30px;
-        width: 250px;
+        margin: 0px 20px;
+        width: 200px;
+        height: auto;
+    }
+    .nav-link {
+        font-size: medium;
     }
 
     .welcome-container img {
         margin: 80px 0px;
-        height: 500px;
+        height: 300px;
     }
 
     .welcome-container h1 {
-        font-size: 65px;
+        font-size: 40px;
     }
 
     .recipe-container h2 {
-        margin: 170px 0px 80px 0px;
+        margin: 100px 0px 0px 0px;
+        font-size: 40px;
     }
 
     .card {
-        width: 10rem;
+        width: 6rem;
+    }
+    .card-title {
+        font-size: 0.5rem
     }
 
     .hero {
@@ -340,7 +347,7 @@ ol {
     }
 
     .hero h2 {
-        font-size: 35px;
+        font-size: 30px;
         line-height: 35px;
     }
     .hero h3 {
@@ -348,16 +355,16 @@ ol {
         line-height: 15px;
     }
     .hero p {
-        font-size: 15px;
+        font-size: 10px;
         line-height: 15px;
         font-weight: 300;
         display: block;
         width: 100%;
     }
     li {
-        font-size: 15px;
+        font-size: 10px;
     }
     ol {
-        font-size: 15px;
+        font-size: 10px;
     }
 }
