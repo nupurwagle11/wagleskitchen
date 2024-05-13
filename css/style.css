@@ -255,11 +255,11 @@ ol {
     and (min-width: 1200px) 
     and (max-width: 1600px) 
     and (min-height: 600px) 
-    and (max-height: 999px) {
+    and (max-height: 999px){
 
     .welcome-container img {
         margin: 60px 0px;
-        height: 606px;
+        height: 500px;
     }
 
     .recipe-container h2 {
@@ -267,15 +267,33 @@ ol {
     }
 
     .card {
-        width: 25rem;
+        width: 15rem;
     }
 
     .hero {
         margin-bottom: 0px
     }
 
-    .hero h3 {
+    .hero h2 {
         font-size: 35px;
+        line-height: 35px;
+    }
+    .hero h3 {
+        font-size: 15px;
+        line-height: 15px;
+    }
+    .hero p {
+        font-size: 15px;
+        line-height: 15px;
+        font-weight: 300;
+        display: block;
+        width: 100%;
+    }
+    li {
+        font-size: 15px;
+    }
+    ol {
+        font-size: 15px;
     }
   }
 
