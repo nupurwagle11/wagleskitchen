@@ -252,9 +252,9 @@ ol {
 
 
 @media only screen 
-  and (min-device-width: 400px) 
+  and (min-device-width: 300px) 
   and (max-device-width: 500px) 
-  and (min-device-height: 900px) 
+  and (min-device-height: 750px) 
   and (max-device-height: 999px)
   and (-webkit-device-pixel-ratio: 3) {
   
