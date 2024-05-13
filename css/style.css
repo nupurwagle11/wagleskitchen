@@ -249,3 +249,60 @@ ol {
         font-size: 35px;
     }
 }
+
+
+@media only screen 
+  and (min-device-width: 400px) 
+  and (max-device-width: 500px) 
+  and (min-device-height: 900px) 
+  and (max-device-height: 999px)
+  and (-webkit-device-pixel-ratio: 3) {
+  
+    .navbar-brand img {
+        margin: 0px 30px;
+        width: 250px;
+    }
+
+    .welcome-container img {
+        margin: 80px 0px;
+        height: 500px;
+    }
+
+    .welcome-container h1 {
+        font-size: 65px;
+    }
+
+    .recipe-container h2 {
+        margin: 170px 0px 80px 0px;
+    }
+
+    .card {
+        width: 10rem;
+    }
+
+    .hero {
+        margin-bottom: 0px
+    }
+
+    .hero h2 {
+        font-size: 35px;
+        line-height: 35px;
+    }
+    .hero h3 {
+        font-size: 15px;
+        line-height: 15px;
+    }
+    .hero p {
+        font-size: 15px;
+        line-height: 15px;
+        font-weight: 300;
+        display: block;
+        width: 100%;
+    }
+    li {
+        font-size: 15px;
+    }
+    ol {
+        font-size: 15px;
+    }
+}
