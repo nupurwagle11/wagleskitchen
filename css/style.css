@@ -255,8 +255,7 @@ ol {
   and (min-device-width: 250px) 
   and (max-device-width: 650px) 
   and (min-device-height: 600px) 
-  and (max-device-height: 999px)
-  and (-webkit-device-pixel-ratio: 3) {
+  and (max-device-height: 999px) {
   
     .navbar-brand img {
         margin: 0px 30px;
