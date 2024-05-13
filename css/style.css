@@ -217,39 +217,3 @@ li,
 ol {
     font-size: 20px;
 }
-
-/* Media queries for responsiveness */
-@media only screen and (max-width: 768px) {
-    /* Adjust font sizes for smaller devices */
-    h1 {
-        font-size: 60px;
-        line-height: 70px;
-    }
-
-    h2 {
-        font-size: 40px;
-        line-height: 50px;
-    }
-
-    h3 {
-        font-size: 30px;
-        line-height: 40px;
-    }
-
-    p {
-        font-size: 20px;
-        line-height: 24px;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    /* Additional adjustments for smaller devices if needed */
-    .order-now h1 {
-        font-size: 60px;
-        line-height: 70px;
-    }
-
-    .recipe-container h2 {
-        margin: 90px 0px; /* Adjust as needed */
-    }
-}
