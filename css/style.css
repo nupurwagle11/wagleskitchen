@@ -1,42 +1,244 @@
-/* Define base font size */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
 html {
-    font-size: 16px; /* Adjust as needed */
+    scroll-snap-type: y mandatory;
 }
 
-/* Media query for smaller devices */
-@media only screen and (max-width: 768px) {
-    /* Adjustments for smaller screens */
-
-    /* Resetting font sizes */
-    h1 {
-        font-size: 40px;
-        line-height: 50px;
-    }
-
-    h2 {
-        font-size: 30px;
-        line-height: 40px;
-    }
-
-    h3 {
-        font-size: 24px;
-        line-height: 30px;
-    }
-
-    p {
-        font-size: 16px;
-        line-height: 20px;
-    }
-
-    /* Adjustments for specific elements */
-    .order-now h1 {
-        font-size: 60px;
-        line-height: 70px;
-    }
+body {
+    background: #FFFCF5;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Media query for even smaller devices if needed */
-@media only screen and (max-width: 480px) {
-    /* Additional adjustments for very small screens */
-    /* You can add more specific adjustments here if necessary */
+body.loaded {
+    overflow: auto;
+}
+
+.webgl {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+section {
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+    position: relative;
+}
+
+section .container {
+    max-width: 1360px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: flex-start;
+}
+
+section.one .container {
+    grid-template-areas: 'content ..'
+}
+
+section.two .container {
+    grid-template-areas: '.. content'
+}
+
+section.three .container {
+    grid-template-areas: '.. content'
+}
+
+section.four .container {
+    grid-template-areas: '.. content'
+}
+
+section.five .container {
+    grid-template-areas: 'content ..'
+}
+section.six .container {
+    grid-template-areas: '.. content'
+}
+section.seven .container {
+    grid-template-areas: 'content ..'
+}
+
+.hero {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 50px;
+
+    grid-area: content;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.order-now h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 90px;
+    line-height: 100px;
+    font-weight: 700;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255 194 0);
+    text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.9);
+}
+
+h1 {
+    font-size: 90px;
+    line-height: 100px;
+    font-weight: 700;
+    height: 100px;
+    width: 100%;
+}
+
+h2 {
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 70px;
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    width: 100%;
+}
+
+h3 {
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 60px;
+    margin-bottom: 30px;
+    display: block;
+    width: 100%;
+}
+
+p {
+    font-size: 25px;
+    line-height: 26px;
+    font-weight: 300;
+    display: block;
+    width: 100%;
+}
+
+.loading-bar {
+    position: fixed;
+    top: 50%;
+    width: 100%;
+    height: 2px;
+    z-index: 99;
+    background: #ffffff;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+    transform-origin: top left;
+}
+
+.loading-bar.ended {
+    transform: scaleX(0);
+    transform-origin: 100% 0;
+    transition: transform 1.5s ease-in-out;
+}
+
+.custom-navbar {
+    background-color: transparent !important;
+  }
+
+.nav-link {
+    font-size: x-large;
+    margin: 0px 15px;
+}
+
+.navbar-brand img {
+    margin: 0px 30px;
+}
+
+.dropdown-item {
+    font-size: x-large;
+}
+
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: 
+        linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)),
+        url('../assets/images/mcLogo1.png') center/cover no-repeat;
+    background-color: #FFFCF5;
+    opacity: 0.5;
+}
+
+.welcome-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.welcome-container img {
+    margin: 90px 0px;
+}
+
+.recipe-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.recipe-container h2{
+    margin: 175px 0px;
+}
+
+li,
+ol {
+    font-size: 20px;
+}
+
+.container {
+    padding: 0 15px;
+}
+
+/* Adjust font sizes for smaller devices */
+h1 {
+    font-size: 60px;
+    line-height: 70px;
+}
+
+h2 {
+    font-size: 40px;
+    line-height: 50px;
+}
+
+h3 {
+    font-size: 30px;
+    line-height: 40px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 24px;
 }
