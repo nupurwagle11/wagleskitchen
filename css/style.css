@@ -257,13 +257,22 @@ ol {
     and (min-height: 550px) 
     and (max-height: 999px){
 
+    .navbar-brand img {
+        margin: 0px 20px;
+        width: 200px;
+        height: auto;
+    }
+    .nav-link {
+        font-size: medium;
+    }
+
     .welcome-container img {
-        margin: 60px 0px;
-        height: 500px;
+        margin: 40px 0px;
+        height: 400px;
     }
 
     .recipe-container h2 {
-        margin: 120px 0px;
+        margin: 100px 0px 40px 0px;
     }
 
     .card {
